@@ -1,36 +1,44 @@
-from fastapi import FastAPI, Header, HTTPException
-from app.models import (
-    SummarizeRequest,
-    SummarizeResponse,
-    ClassifyRequest,
-    ClassifyResponse,
-)
-from app.services import summarize_text, classify_text
+import os
+import secrets
+
+from fastapi import Depends, FastAPI, Header, HTTPException
+
+from app.config import CATEGORIES, PRIORITY_MATRIX, SLA_HOURS
+from app.models import TicketIn, TriageResult
+from app.triage import triage
 
 
 app = FastAPI(
-    title="LLM Microservice",
-    description="A REST API for text summarization and classification powered by Groq.",
-    version="1.0.0",
+    title="IT Service Desk Triage",
+    description="Classifies IT tickets, sets the ITIL priority, routes them to a resolver group "
+                "and calculates SLA deadlines.",
+    version="2.0.0",
 )
+
+
+def check_api_key(x_api_key: str | None = Header(None)):
+    """If SERVICE_API_KEY is set, callers must send it in the X-API-Key header."""
+    expected = os.getenv("SERVICE_API_KEY")
+    if expected and not (x_api_key and secrets.compare_digest(x_api_key, expected)):
+        raise HTTPException(status_code=401, detail="Invalid or missing API key.")
 
 
 @app.get("/")
 def root():
-    return {"status": "ok", "message": "LLM Microservice is running."}
+    return {"status": "ok", "message": "IT Service Desk Triage is running.",
+            "llm_configured": bool(os.getenv("GROQ_API_KEY"))}
 
 
-@app.post("/summarize", response_model=SummarizeResponse)
-def summarize(request: SummarizeRequest, x_api_key: str = Header(...)):
-    if not x_api_key:
-        raise HTTPException(status_code=401, detail="API key is required.")
-    result = summarize_text(request.text, request.max_words, x_api_key)
-    return result
+@app.get("/taxonomy")
+def taxonomy():
+    """Categories, resolver groups, priority matrix and SLA targets the service uses."""
+    return {
+        "categories": {name: {"description": d, "resolver_group": g} for name, (d, g) in CATEGORIES.items()},
+        "priority_matrix": {f"{impact}/{urgency}": p for (impact, urgency), p in PRIORITY_MATRIX.items()},
+        "sla_hours": {p: {"first_response": r, "resolution": s} for p, (r, s) in SLA_HOURS.items()},
+    }
 
 
-@app.post("/classify", response_model=ClassifyResponse)
-def classify(request: ClassifyRequest, x_api_key: str = Header(...)):
-    if not x_api_key:
-        raise HTTPException(status_code=401, detail="API key is required.")
-    result = classify_text(request.text, request.labels, x_api_key)
-    return result
+@app.post("/triage", response_model=TriageResult, dependencies=[Depends(check_api_key)])
+def triage_ticket(ticket: TicketIn):
+    return triage(ticket)

@@ -1,0 +1,792 @@
+{
+  "tickets": 60,
+  "scores": {
+    "Keyword baseline": {
+      "tickets": 60,
+      "category_accuracy": 0.6833333333333333,
+      "priority_accuracy": 0.35,
+      "priority_within_one": 0.7833333333333333,
+      "major_incidents": 16,
+      "major_recall": 0.3125,
+      "major_under_called": [
+        "N2",
+        "N6",
+        "B4",
+        "E5",
+        "S1",
+        "S3",
+        "S4",
+        "S7",
+        "S8",
+        "O1",
+        "O3",
+        "O6"
+      ],
+      "minor_over_called": [
+        "E3"
+      ],
+      "by_language": {
+        "de": 0.2727272727272727,
+        "en": 0.22448979591836735
+      },
+      "priority_confusion": {
+        "P1": {
+          "P3": 5,
+          "P1": 3,
+          "P4": 1,
+          "P2": 1
+        },
+        "P2": {
+          "P2": 1,
+          "P4": 5
+        },
+        "P3": {
+          "P4": 10,
+          "P3": 6
+        },
+        "P4": {
+          "P3": 2,
+          "P4": 8,
+          "P2": 1
+        },
+        "P5": {
+          "P5": 3,
+          "P3": 1,
+          "P4": 13
+        }
+      }
+    },
+    "LLM triage (openai/gpt-oss-120b)": {
+      "tickets": 60,
+      "category_accuracy": 0.9666666666666667,
+      "priority_accuracy": 0.7833333333333333,
+      "priority_within_one": 0.9666666666666667,
+      "major_incidents": 16,
+      "major_recall": 1.0,
+      "major_under_called": [],
+      "minor_over_called": [],
+      "by_language": {
+        "de": 0.7272727272727273,
+        "en": 0.7755102040816326
+      },
+      "priority_confusion": {
+        "P1": {
+          "P1": 10
+        },
+        "P2": {
+          "P1": 4,
+          "P2": 2
+        },
+        "P3": {
+          "P3": 13,
+          "P2": 3
+        },
+        "P4": {
+          "P4": 7,
+          "P3": 3,
+          "P5": 1
+        },
+        "P5": {
+          "P5": 15,
+          "P3": 2
+        }
+      },
+      "review_rate": 0.25,
+      "auto_routed_accuracy": 0.7777777777777778,
+      "under_calls_caught_by_review": [],
+      "under_calls_missed": []
+    }
+  },
+  "llm_details": [
+    {
+      "id": "A1",
+      "category": "access_identity",
+      "impact": "low",
+      "urgency": "high",
+      "priority": "P3",
+      "confidence": 0.98,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User account is locked after multiple failed password attempts, preventing sign‑in before a scheduled customer call."
+    },
+    {
+      "id": "A2",
+      "category": "access_identity",
+      "impact": "low",
+      "urgency": "low",
+      "priority": "P5",
+      "confidence": 0.99,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User requests a password reset for SAP."
+    },
+    {
+      "id": "A3",
+      "category": "access_identity",
+      "impact": "low",
+      "urgency": "high",
+      "priority": "P3",
+      "confidence": 0.98,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User cannot approve sign‑ins because the authenticator app was lost after changing phones."
+    },
+    {
+      "id": "A4",
+      "category": "access_identity",
+      "impact": "low",
+      "urgency": "medium",
+      "priority": "P4",
+      "confidence": 0.98,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User requests read access to the Finance folder on the file server for month‑end close."
+    },
+    {
+      "id": "A5",
+      "category": "access_identity",
+      "impact": "high",
+      "urgency": "high",
+      "priority": "P1",
+      "confidence": 0.98,
+      "needs_human_review": true,
+      "review_reasons": [
+        "P1: incident manager to confirm major incident"
+      ],
+      "summary": "All 12 members of the sales team are unable to sign in because their accounts appear disabled."
+    },
+    {
+      "id": "A6",
+      "category": "access_identity",
+      "impact": "low",
+      "urgency": "high",
+      "priority": "P3",
+      "confidence": 0.99,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "Password expired and cannot be changed, preventing work."
+    },
+    {
+      "id": "A7",
+      "category": "access_identity",
+      "impact": "low",
+      "urgency": "low",
+      "priority": "P5",
+      "confidence": 0.99,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User requests read access to the Einkauf/Lieferanten folder."
+    },
+    {
+      "id": "H1",
+      "category": "hardware_endpoint",
+      "impact": "low",
+      "urgency": "medium",
+      "priority": "P4",
+      "confidence": 0.98,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User's laptop does not power on and remains off even when plugged in."
+    },
+    {
+      "id": "H2",
+      "category": "hardware_endpoint",
+      "impact": "medium",
+      "urgency": "medium",
+      "priority": "P3",
+      "confidence": 0.98,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "The shared printer on the 2nd floor is repeatedly jamming."
+    },
+    {
+      "id": "H3",
+      "category": "hardware_endpoint",
+      "impact": "low",
+      "urgency": "low",
+      "priority": "P5",
+      "confidence": 0.98,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "Second monitor flickers intermittently, but user can work with one screen."
+    },
+    {
+      "id": "H4",
+      "category": "hardware_endpoint",
+      "impact": "low",
+      "urgency": "high",
+      "priority": "P3",
+      "confidence": 0.99,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User's laptop screen is cracked and needs a replacement before a presentation tomorrow."
+    },
+    {
+      "id": "H5",
+      "category": "hardware_endpoint",
+      "impact": "medium",
+      "urgency": "high",
+      "priority": "P2",
+      "confidence": 0.97,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "Docking stations in three meeting rooms on floor 4 are not charging laptops or displaying screens."
+    },
+    {
+      "id": "H6",
+      "category": "hardware_endpoint",
+      "impact": "low",
+      "urgency": "low",
+      "priority": "P5",
+      "confidence": 0.98,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "Some keys on the keyboard are not working, user is using a temporary replacement keyboard."
+    },
+    {
+      "id": "H7",
+      "category": "hardware_endpoint",
+      "impact": "low",
+      "urgency": "high",
+      "priority": "P3",
+      "confidence": 0.99,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "The laptop battery has swollen and becomes very hot when charging, causing the case to bend open."
+    },
+    {
+      "id": "H8",
+      "category": "hardware_endpoint",
+      "impact": "low",
+      "urgency": "low",
+      "priority": "P5",
+      "confidence": 0.98,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User reports that the mouse wheel is squeaking."
+    },
+    {
+      "id": "N1",
+      "category": "network_connectivity",
+      "impact": "low",
+      "urgency": "high",
+      "priority": "P3",
+      "confidence": 0.98,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User cannot connect to VPN due to authentication timeout, preventing access to internal resources."
+    },
+    {
+      "id": "N2",
+      "category": "network_connectivity",
+      "impact": "high",
+      "urgency": "high",
+      "priority": "P1",
+      "confidence": 0.99,
+      "needs_human_review": true,
+      "review_reasons": [
+        "P1: incident manager to confirm major incident"
+      ],
+      "summary": "Network and internet are down for all users in building B, affecting about 80 people and desk phones."
+    },
+    {
+      "id": "N3",
+      "category": "network_connectivity",
+      "impact": "low",
+      "urgency": "low",
+      "priority": "P5",
+      "confidence": 0.98,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "Guest Wi‑Fi in the canteen is very slow at lunch time."
+    },
+    {
+      "id": "N4",
+      "category": "network_connectivity",
+      "impact": "medium",
+      "urgency": "medium",
+      "priority": "P3",
+      "confidence": 0.97,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "VPN disconnects roughly every hour for a remote team of six, requiring frequent reconnections."
+    },
+    {
+      "id": "N5",
+      "category": "network_connectivity",
+      "impact": "medium",
+      "urgency": "high",
+      "priority": "P2",
+      "confidence": 0.96,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "Im Besprechungsraum 3.12 gibt es kein WLAN, was die heutige Kundenvorstellung gefährdet."
+    },
+    {
+      "id": "N6",
+      "category": "network_connectivity",
+      "impact": "high",
+      "urgency": "high",
+      "priority": "P1",
+      "confidence": 0.99,
+      "needs_human_review": true,
+      "review_reasons": [
+        "P1: incident manager to confirm major incident"
+      ],
+      "summary": "The Pilsen site has lost internet and WAN connectivity, affecting SAP, email and production order transmission."
+    },
+    {
+      "id": "N7",
+      "category": "network_connectivity",
+      "impact": "low",
+      "urgency": "medium",
+      "priority": "P4",
+      "confidence": 0.96,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User reports VPN is very slow, causing file access to take minutes."
+    },
+    {
+      "id": "B1",
+      "category": "business_application",
+      "impact": "high",
+      "urgency": "high",
+      "priority": "P1",
+      "confidence": 0.99,
+      "needs_human_review": true,
+      "review_reasons": [
+        "P1: incident manager to confirm major incident"
+      ],
+      "summary": "SAP short dump is blocking the entire finance team during month‑end close."
+    },
+    {
+      "id": "B2",
+      "category": "business_application",
+      "impact": "medium",
+      "urgency": "medium",
+      "priority": "P3",
+      "confidence": 0.99,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "CRM pipeline report totals are incorrect and do not match the opportunity list."
+    },
+    {
+      "id": "B3",
+      "category": "business_application",
+      "impact": "low",
+      "urgency": "low",
+      "priority": "P5",
+      "confidence": 0.97,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User receives a 500 error when submitting a vacation request in the HR portal."
+    },
+    {
+      "id": "B4",
+      "category": "business_application",
+      "impact": "high",
+      "urgency": "high",
+      "priority": "P1",
+      "confidence": 0.97,
+      "needs_human_review": true,
+      "review_reasons": [
+        "P1: incident manager to confirm major incident"
+      ],
+      "summary": "Purchase orders from SAP are failing to send to suppliers, affecting tomorrow's production material."
+    },
+    {
+      "id": "B5",
+      "category": "business_application",
+      "impact": "medium",
+      "urgency": "medium",
+      "priority": "P3",
+      "confidence": 0.98,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "SAP MIGO goods receipt transaction is taking about 2 minutes to save for several warehouse users."
+    },
+    {
+      "id": "B6",
+      "category": "business_application",
+      "impact": "medium",
+      "urgency": "medium",
+      "priority": "P3",
+      "confidence": 0.97,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "Error 'Steuerkennzeichen fehlt' when posting incoming invoices in SAP, others can post normally."
+    },
+    {
+      "id": "B7",
+      "category": "business_application",
+      "impact": "low",
+      "urgency": "low",
+      "priority": "P5",
+      "confidence": 0.99,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User asks how to add a second contact person to an account in the CRM."
+    },
+    {
+      "id": "E1",
+      "category": "email_collaboration",
+      "impact": "low",
+      "urgency": "medium",
+      "priority": "P4",
+      "confidence": 0.99,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "Outlook is not receiving new emails while webmail works fine."
+    },
+    {
+      "id": "E2",
+      "category": "email_collaboration",
+      "impact": "high",
+      "urgency": "high",
+      "priority": "P1",
+      "confidence": 0.99,
+      "needs_human_review": true,
+      "review_reasons": [
+        "P1: incident manager to confirm major incident"
+      ],
+      "summary": "Email service is down for all users, preventing sending and receiving messages and causing order confirmation bounces."
+    },
+    {
+      "id": "E3",
+      "category": "email_collaboration",
+      "impact": "low",
+      "urgency": "high",
+      "priority": "P3",
+      "confidence": 0.97,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User cannot be heard in Teams meetings after recent update, forcing phone dial‑in."
+    },
+    {
+      "id": "E4",
+      "category": "email_collaboration",
+      "impact": "low",
+      "urgency": "medium",
+      "priority": "P4",
+      "confidence": 0.98,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "Accepted meeting invites disappear from the user's calendar after a day."
+    },
+    {
+      "id": "E5",
+      "category": "email_collaboration",
+      "impact": "high",
+      "urgency": "high",
+      "priority": "P1",
+      "confidence": 0.97,
+      "needs_human_review": true,
+      "review_reasons": [
+        "P1: incident manager to confirm major incident"
+      ],
+      "summary": "The ERP rollout SharePoint site is loading blank for all 15 project members, blocking access to the go‑live checklist."
+    },
+    {
+      "id": "E6",
+      "category": "email_collaboration",
+      "impact": "low",
+      "urgency": "high",
+      "priority": "P3",
+      "confidence": 0.98,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "The user's mailbox is full and they cannot send any emails."
+    },
+    {
+      "id": "E7",
+      "category": "email_collaboration",
+      "impact": "medium",
+      "urgency": "high",
+      "priority": "P2",
+      "confidence": 0.98,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "Supplier emails are bouncing, affecting two purchasing colleagues who need delivery confirmations this week."
+    },
+    {
+      "id": "S1",
+      "category": "security_incident",
+      "impact": "medium",
+      "urgency": "high",
+      "priority": "P2",
+      "confidence": 0.98,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User entered password on a phishing page after clicking a deceptive email link."
+    },
+    {
+      "id": "S2",
+      "category": "security_incident",
+      "impact": "low",
+      "urgency": "medium",
+      "priority": "P4",
+      "confidence": 0.97,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User received a suspicious payroll email requesting bank details and forwarded it for review."
+    },
+    {
+      "id": "S3",
+      "category": "security_incident",
+      "impact": "high",
+      "urgency": "high",
+      "priority": "P1",
+      "confidence": 0.99,
+      "needs_human_review": true,
+      "review_reasons": [
+        "P1: incident manager to confirm major incident"
+      ],
+      "summary": "A laptop containing customer drawings was stolen from the user's car."
+    },
+    {
+      "id": "S4",
+      "category": "security_incident",
+      "impact": "high",
+      "urgency": "high",
+      "priority": "P1",
+      "confidence": 0.98,
+      "needs_human_review": true,
+      "review_reasons": [
+        "P1: incident manager to confirm major incident"
+      ],
+      "summary": "Ransomware has encrypted files on the engineering share, adding a .locked extension and demanding payment."
+    },
+    {
+      "id": "S5",
+      "category": "security_incident",
+      "impact": "low",
+      "urgency": "low",
+      "priority": "P5",
+      "confidence": 0.97,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "Antivirus detected and removed a threat from a downloaded file."
+    },
+    {
+      "id": "S6",
+      "category": "security_incident",
+      "impact": "low",
+      "urgency": "high",
+      "priority": "P3",
+      "confidence": 0.97,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User lost a company mobile phone containing email and Teams access."
+    },
+    {
+      "id": "S7",
+      "category": "security_incident",
+      "impact": "high",
+      "urgency": "high",
+      "priority": "P1",
+      "confidence": 0.99,
+      "needs_human_review": true,
+      "review_reasons": [
+        "P1: incident manager to confirm major incident"
+      ],
+      "summary": "An Excel file containing personal and banking details of ~300 customers was mistakenly emailed to an external recipient."
+    },
+    {
+      "id": "S8",
+      "category": "security_incident",
+      "impact": "medium",
+      "urgency": "high",
+      "priority": "P2",
+      "confidence": 0.97,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User received unknown sign‑in alerts from another country and did not approve them."
+    },
+    {
+      "id": "O1",
+      "category": "ot_production",
+      "impact": "high",
+      "urgency": "high",
+      "priority": "P1",
+      "confidence": 0.98,
+      "needs_human_review": true,
+      "review_reasons": [
+        "P1: incident manager to confirm major incident"
+      ],
+      "summary": "Barcode scanner on line 3 is not reading labels, preventing finished goods booking and blocking shipping."
+    },
+    {
+      "id": "O2",
+      "category": "ot_production",
+      "impact": "medium",
+      "urgency": "medium",
+      "priority": "P3",
+      "confidence": 0.97,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "The MES terminal at assembly station 7 is responding slowly, causing reduced output."
+    },
+    {
+      "id": "O3",
+      "category": "ot_production",
+      "impact": "high",
+      "urgency": "high",
+      "priority": "P1",
+      "confidence": 0.99,
+      "needs_human_review": true,
+      "review_reasons": [
+        "P1: incident manager to confirm major incident"
+      ],
+      "summary": "The HMI screen of welding robot cell 2 is frozen, stopping the cell and holding up the production line."
+    },
+    {
+      "id": "O4",
+      "category": "ot_production",
+      "impact": "medium",
+      "urgency": "medium",
+      "priority": "P3",
+      "confidence": 0.97,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "Der Etikettendrucker an Linie 5 druckt unscharfe, aber noch lesbare Etiketten."
+    },
+    {
+      "id": "O5",
+      "category": "service_request",
+      "impact": "medium",
+      "urgency": "medium",
+      "priority": "P3",
+      "confidence": 0.96,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "Vendor needs remote access to Press 4 for scheduled maintenance tomorrow at 10:00."
+    },
+    {
+      "id": "O6",
+      "category": "ot_production",
+      "impact": "high",
+      "urgency": "high",
+      "priority": "P1",
+      "confidence": 0.97,
+      "needs_human_review": true,
+      "review_reasons": [
+        "P1: incident manager to confirm major incident"
+      ],
+      "summary": "Packaging line PLC shows intermittent communication alarms causing 30‑second pauses and ~15% output loss."
+    },
+    {
+      "id": "O7",
+      "category": "ot_production",
+      "impact": "high",
+      "urgency": "high",
+      "priority": "P1",
+      "confidence": 0.99,
+      "needs_human_review": true,
+      "review_reasons": [
+        "P1: incident manager to confirm major incident"
+      ],
+      "summary": "Die MES-Terminals in Halle 2 haben keine Serververbindung, wodurch die gesamte Fertigung stillsteht."
+    },
+    {
+      "id": "R1",
+      "category": "service_request",
+      "impact": "low",
+      "urgency": "low",
+      "priority": "P5",
+      "confidence": 0.99,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "Request to prepare a laptop, monitor, and headset for a new engineer starting next month."
+    },
+    {
+      "id": "R2",
+      "category": "service_request",
+      "impact": "low",
+      "urgency": "low",
+      "priority": "P5",
+      "confidence": 0.99,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User requests installation of Python and VS Code on their work PC for a data analysis course."
+    },
+    {
+      "id": "R3",
+      "category": "service_request",
+      "impact": "low",
+      "urgency": "low",
+      "priority": "P5",
+      "confidence": 0.99,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User requests a second monitor for their desk, approved by their manager."
+    },
+    {
+      "id": "R4",
+      "category": "service_request",
+      "impact": "low",
+      "urgency": "medium",
+      "priority": "P4",
+      "confidence": 0.99,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "Request to set up a user account, laptop and phone for a new purchasing department employee starting Monday."
+    },
+    {
+      "id": "R5",
+      "category": "service_request",
+      "impact": "low",
+      "urgency": "low",
+      "priority": "P5",
+      "confidence": 0.99,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User requests an additional CAD license for a new designer, approved by cost center 4711."
+    },
+    {
+      "id": "R6",
+      "category": "service_request",
+      "impact": "low",
+      "urgency": "low",
+      "priority": "P5",
+      "confidence": 0.99,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User requests replacement of an old desk phone."
+    },
+    {
+      "id": "R7",
+      "category": "service_request",
+      "impact": "medium",
+      "urgency": "medium",
+      "priority": "P3",
+      "confidence": 0.98,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "Request for 8 headsets for the customer service team before the 15th."
+    },
+    {
+      "id": "X1",
+      "category": "service_request",
+      "impact": "low",
+      "urgency": "low",
+      "priority": "P5",
+      "confidence": 0.97,
+      "needs_human_review": false,
+      "review_reasons": [],
+      "summary": "User asks if IT is offering an Excel training this year."
+    },
+    {
+      "id": "X2",
+      "category": "other",
+      "impact": "low",
+      "urgency": "low",
+      "priority": "P5",
+      "confidence": 0.99,
+      "needs_human_review": true,
+      "review_reasons": [
+        "No matching category"
+      ],
+      "summary": "The coffee machine on floor 3 is broken."
+    }
+  ]
+}
