@@ -1,3 +1,5 @@
+import os
+
 from langchain_groq import ChatGroq
 from langchain.prompts import PromptTemplate
 
@@ -5,7 +7,7 @@ from langchain.prompts import PromptTemplate
 def get_llm(api_key: str) -> ChatGroq:
     return ChatGroq(
         api_key=api_key,
-        model_name="llama-3.3-70b-versatile",
+        model_name=os.getenv("GROQ_MODEL", "openai/gpt-oss-120b"),
         temperature=0.2,
     )
 

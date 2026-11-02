@@ -9,7 +9,7 @@ A production-ready REST API that wraps Groq LLM for text summarization and class
 | Layer | Tool |
 |---|---|
 | API Framework | FastAPI |
-| LLM | Groq (Llama 3.3 70B) |
+| LLM | Groq (`openai/gpt-oss-120b`, configurable with `GROQ_MODEL`) |
 | Orchestration | LangChain |
 | Validation | Pydantic v2 |
 | Testing | pytest + httpx |
